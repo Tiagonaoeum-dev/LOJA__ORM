@@ -48,8 +48,7 @@ projeto/
 
 ### 1. Clonar o repositório
 ```
-git clone https://github.com/seu-usuario/loja-jogos-api.git
-cd loja-jogos-api
+git clone https://github.com/Tiagonaoeum-dev/LOJA__ORM
 ```
 
 ### 2. Instalar dependências
