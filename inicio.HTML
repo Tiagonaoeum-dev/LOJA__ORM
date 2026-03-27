@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Loja de Jogos</title>
+
+    <!-- 🔥 Conectando CSS -->
+    <link rel="stylesheet" href="jogos.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Loja de Jogos</h1>
+    </header>
+
+    <div class="container">
+        <div class="lista-jogos" id="lista-jogos"></div>
+    </div>
+
+    <script>
+        fetch('http://127.0.0.1:5000/jogos')
+            .then(response => response.json())
+            .then(data => {
+                const lista = document.getElementById('lista-jogos');
+
+                data.forEach(jogo => {
+                    const card = document.createElement('div');
+                    card.classList.add('card');
+
+                    card.innerHTML = `
+                        <h2>${jogo.titulo}</h2>
+                        <p>${jogo.genero}</p>
+                        <div class="preco">R$ ${jogo.preco}</div>
+                        <button class="btn">Comprar</button>
+                    `;
+
+                    lista.appendChild(card);
+                });
+            })
+            .catch(error => console.error('Erro:', error));
+    </script>
+
+</body>
+</html>
